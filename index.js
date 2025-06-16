@@ -1,7 +1,9 @@
+// /index.js
 // 컨트롤러 역할을 하는 파일
 
 import getTodos from './getTodos.js'
-import view from './view.js'
+// import view from './view.js'
+import view from './view/app.js'  // 기존 view.js 대신 view/app.js 사용. app.js에서는 분리된 뷰 함수들을 사용한다.
 
 const state = {
   todos: getTodos(),

@@ -1,3 +1,4 @@
+// /getTodos.js
 const { faker } = window
 
 const createElement = () => ({
@@ -19,3 +20,4 @@ export default () => {
   const howMany = faker.random.number(10) // 10개 이하의 랜덤 숫자를 반환한다.
   return repeat(createElement, howMany) // 결국 {text: '랜덤 단어', completed: 랜덤 불리언} 형태의 객체를 10개 이하로 생성하여 배열로 반환한다.
 }
+
