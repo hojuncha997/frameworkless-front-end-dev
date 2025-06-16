@@ -2,6 +2,18 @@
 // 컨트롤러 역할을 하는 파일
 
 import getTodos from './getTodos.js'
+
+import todosView from './view/todos.js'
+import counterView from './view/counter.js'
+import filtersView from './view/filters.js'
+
+import registry from './registry.js'
+
+// 레지트리를 사용하는 컨트롤러
+registry.add('todos', todosView)
+registry.add('counter', counterView)
+registry.add('filters', filtersView)
+
 // import view from './view.js'
 import view from './view/app.js'  // 기존 view.js 대신 view/app.js 사용. app.js에서는 분리된 뷰 함수들을 사용한다.
 
