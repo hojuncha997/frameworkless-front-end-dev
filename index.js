@@ -33,7 +33,7 @@ const state = {
 
 const render = () => {
   // 동적 데터 렌더링: 사용자나 이벤트에 의해 데이터 변경
-  // 여기서는 5초마다 상태를 무작위로 변경하여 렌더링한다.
+  // 여기서는 5초마다 상태를 무작위로 변경하여 렌더링한다. ->  목록이 5초마다 무작위로 변경된다.
   window.requestAnimationFrame(() => {
     const main = document.querySelector('.todoapp')
     const newMain = registry.renderRoot(main, state)
