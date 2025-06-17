@@ -15,21 +15,38 @@ registry.add('counter', counterView)
 registry.add('filters', filtersView)
 
 // import view from './view.js'
-import view from './view/app.js'  // 기존 view.js 대신 view/app.js 사용. app.js에서는 분리된 뷰 함수들을 사용한다.
+// import view from './view/app.js'  // 기존 view.js 대신 view/app.js 사용. app.js에서는 분리된 뷰 함수들을 사용한다.
 
 const state = {
   todos: getTodos(),
   currentFilter: 'All'
 }
 
-const main = document.querySelector('.todoapp')
+// const main = document.querySelector('.todoapp')
 
-window.requestAnimationFrame(() => {
-    // 뷰 함수를 호출하여 투두 앱 요소를 반환한다.
-  const newMain = view(main, state)
-  // DOM에서 기존 요소를 제거하고 새 요소를 삽입한다.
-  main.replaceWith(newMain)
-})
+// window.requestAnimationFrame(() => {
+//     // 뷰 함수를 호출하여 투두 앱 요소를 반환한다.
+//   const newMain = view(main, state)
+//   // DOM에서 기존 요소를 제거하고 새 요소를 삽입한다.
+//   main.replaceWith(newMain)
+// })
+
+const render = () => {
+  // 동적 데터 렌더링: 사용자나 이벤트에 의해 데이터 변경
+  // 여기서는 5초마다 상태를 무작위로 변경하여 렌더링한다.
+  window.requestAnimationFrame(() => {
+    const main = document.querySelector('.todoapp')
+    const newMain = registry.renderRoot(main, state)
+    main.replaceWith(newMain)
+  })
+}
+
+window.setInterval(() => {
+  state.todos = getTodos()
+  render()
+}, 5000)
+
+render()
 
 /*
 
